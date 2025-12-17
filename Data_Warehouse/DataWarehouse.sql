@@ -144,6 +144,9 @@ select A.nome_filme, F.genero, F.ano, A.nota_imdb
 	on R.codigo_filmagem = F.codigo_filmagem
 go
 
+select * from V_FilmesInfoBasica
+go
+
 --Mostrar apenas os filmes que ja foram nominados a um oscar
 create View V_FilmesNominacoes
 as
@@ -155,6 +158,9 @@ select A.nome_filme, F.genero, F.ano, A.nominacoes
 	where A.nominacoes != 0
 go
 
+select * from V_FilmesNominacoes
+go
+
 --Mostrar apenas os filmes que ja receberam um oscar
 create View V_FilmesOscar
 as
@@ -164,6 +170,9 @@ select A.nome_filme, F.genero, F.ano, A.oscar
 	inner join Filmagem F
 	on R.codigo_filmagem = F.codigo_filmagem
 	where A.oscar != 0
+go
+
+select * from V_FilmesOscar
 go
 
 --Configurando o backup
